@@ -1,0 +1,24 @@
+--Create a electronics store database
+
+CREATE TABLE HickeryDickery (id INTEGER PRIMARY KEY, item TEXT, section TEXT, price INTEGER, Sold INTEGER);
+
+INSERT INTO HickeryDickery VALUES (1, "PS5", "gaming console", 699, 48);
+INSERT INTO HickeryDickery VALUES (2, "Xbox Series X", "gaming console", 599, 32);
+INSERT INTO HickeryDickery VALUES (3, "Nintendo Switch", "hand held gaming device", 349, 44);
+INSERT INTO HickeryDickery VALUES (4, "Alienware Curved Monitor", "screen display", 1099, 12);
+INSERT INTO HickeryDickery VALUES (5, "PC", "CPU", 1899, 18);
+
+--display database ordered by price.
+SELECT * FROM HickeryDickery
+ORDER BY price;
+
+--what is the sum of items in the gaming console section?
+SELECT SUM(price) "sum of gaming console" 
+FROM HickeryDickery 
+where section='gaming console';
+
+--What were the top 3 most sold items?
+SELECT item, price, Sold
+FROM HickeryDickery
+ORDER by Sold desc
+limit 3
